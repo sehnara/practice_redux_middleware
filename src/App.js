@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import CounterContainer from "./components/CounterContainer"
+import PostContainer from "./components/PostContainer"
+import { Route, Switch } from "react-router-dom"
+import PContainer from "./components/PContainer"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CounterContainer />
+      <Switch>
+        <Route exact path="/">
+          <PostContainer />
+        </Route>
+        <Route path="/post/:id">
+          <PContainer />
+        </Route>
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
